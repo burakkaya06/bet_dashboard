@@ -11,8 +11,17 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $color = true; // veya false
-        return view('dashboard', compact('color'));
+        $dashboardData = [
+            true,  // Yeşil
+            false, // Kırmızı
+            true,  // Yeşil
+            false, // Kırmızı
+            true,  // Yeşil
+            true,  // Yeşil
+            false  // Kırmızı
+        ];
+
+        return view('dashboard', ['yourArray' => $dashboardData]);
     }
 
     /**
