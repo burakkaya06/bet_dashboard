@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helper\DashboardHelper;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -11,20 +12,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        $helper = new  DashboardHelper();
         $data = [
-            [
-                'kar' => '100 TL',
-                'yatirilan_para' => '1000 TL',
-                'max_n' => '5',
-                'last_n' => '3',
-                'max_n_tarih' => '2024-02-04',
-                'son_gelen_renk' => 'Kırmızı',
-                'son_gelen_sayi' => '18',
-                'oynanilan_renk' => 'Siyah',
-                'durum' => 'Kazandı',
-                'son_log' => 'Oyun kazanıldı.',
-                'test' => 'test'
-            ]
+            $helper->getDetail()
         ];
 
         return view('dashboard', ['data' => $data]);
