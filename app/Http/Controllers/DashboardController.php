@@ -22,7 +22,8 @@ class DashboardController extends Controller
                 'son_gelen_sayi' => '18',
                 'oynanilan_renk' => 'Siyah',
                 'durum' => 'Kazandı',
-                'son_log' => 'Oyun kazanıldı.'
+                'son_log' => 'Oyun kazanıldı.',
+                'test' => 'test'
             ]
         ];
 
