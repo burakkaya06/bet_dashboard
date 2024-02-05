@@ -11,17 +11,22 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $dashboardData = [
-            true,  // Yeşil
-            false, // Kırmızı
-            true,  // Yeşil
-            false, // Kırmızı
-            true,  // Yeşil
-            true,  // Yeşil
-            false  // Kırmızı
+        $data = [
+            [
+                'kar' => '100 TL',
+                'yatirilan_para' => '1000 TL',
+                'max_n' => '5',
+                'last_n' => '3',
+                'max_n_tarih' => '2024-02-04',
+                'son_gelen_renk' => 'Kırmızı',
+                'son_gelen_sayi' => '18',
+                'oynanilan_renk' => 'Siyah',
+                'durum' => 'Kazandı',
+                'son_log' => 'Oyun kazanıldı.'
+            ]
         ];
 
-        return view('dashboard', ['yourArray' => $dashboardData]);
+        return view('dashboard', ['data' => $data]);
     }
 
     /**

@@ -3,64 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Dashboard</title>
-   <style>
-       body, html {
-           height: 100%;
-           margin: 0;
-       }
+    <title>Responsive Layout</title>
+    <style>
+        .data-item {
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            padding: 8px;
+            background-color: #f7f7f7;
+        }
 
-       .dashboard {
-           display: grid;
-           grid-template-columns: repeat(12, 1fr);
-           grid-template-rows: auto;
-           gap: 10px;
-           height: 100%;
-           padding: 10px;
-           box-sizing: border-box;
-       }
+        .data-label {
+            font-weight: bold;
+        }
 
-       .box {
-           background: red; /* Varsayılan arka plan */
-           border-radius: 10px;
-       }
+        .data-value {
+            display: inline-block;
+            margin-left: 10px;
+        }
 
-       /* Renk sınıfları */
-       .green {
-           background: green;
-       }
-
-       .red {
-           background: red;
-       }
-
-       /* Grid alanı */
-       .box:nth-child(1) { grid-column: span 6; grid-row: span 2; } /* Büyük kutu */
-       .box:nth-child(2) { grid-column: span 3; grid-row: span 1; }
-       .box:nth-child(3) { grid-column: span 3; grid-row: span 1; }
-       .box:nth-child(4) { grid-column: span 3; grid-row: span 1; }
-       .box:nth-child(5) { grid-column: span 3; grid-row: span 1; }
-       .box:nth-child(6) { grid-column: span 3; grid-row: span 1; }
-       .box:nth-child(7) { grid-column: span 3; grid-row: span 2; } /* Diğer büyük kutu */
-
-       /* Responsive */
-       @media (max-width: 768px) {
-           .dashboard {
-               grid-template-columns: repeat(6, 1fr);
-           }
-           .box:nth-child(1) { grid-column: span 6; }
-           .box:nth-child(7) { grid-column: span 6; }
-       }
-
-   </style>
+        @media screen and (max-width: 600px) {
+            .data-label, .data-value {
+                display: block;
+                margin-left: 0;
+            }
+        }
+    </style>
 </head>
 <body>
-<div class="dashboard">
-    @for ($i = 0; $i < 7; $i++)
-        <div class="box {{ $yourArray[$i] ? 'green' : 'red' }}">
-            <!-- İçerik buraya gelecek -->
+<div class="responsive-container">
+    @foreach ($data as $item)
+        <div class="data-item">
+            <span class="data-label">Kar:</span>
+            <span class="data-value">{{ $item['kar'] }}</span>
         </div>
-    @endfor
+        <div class="data-item">
+            <span class="data-label">Yatırılan Para:</span>
+            <span class="data-value">{{ $item['yatirilan_para'] }}</span>
+        </div>
+        <div class="data-item">
+            <span class="data-label">Last N:</span>
+            <span class="data-value">{{ $item['last_n'] }}</span>
+        </div>
+        <div class="data-item">
+            <span class="data-label">Max N:</span>
+            <span class="data-value">{{ $item['max_n'] }}</span>
+        </div>
+        <div class="data-item">
+            <span class="data-label">Max N Tarih:</span>
+            <span class="data-value">{{ $item['max_n_tarih'] }}</span>
+        </div>
+
+        <div class="data-item">
+            <span class="data-label">Son Gelen Renk:</span>
+            <span class="data-value">{{ $item['son_gelen_renk'] }}</span>
+        </div>
+        <div class="data-item">
+            <span class="data-label">Son Gelen Sayı:</span>
+            <span class="data-value">{{ $item['son_gelen_sayi'] }}</span>
+        </div>
+        <div class="data-item">
+            <span class="data-label">Oynanılan Renk:</span>
+            <span class="data-value">{{ $item['oynanilan_renk'] }}</span>
+        </div>
+        <div class="data-item">
+            <span class="data-label">Durum:</span>
+            <span class="data-value">{{ $item['durum'] }}</span>
+        </div>
+        <div class="data-item">
+            <span class="data-label">Son Log:</span>
+            <span class="data-value">{{ $item['son_log'] }}</span>
+        </div>
+    @endforeach
 </div>
 </body>
 </html>
