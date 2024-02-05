@@ -25,8 +25,10 @@ class DashboardHelper
         $son_gelen_sayi = $this->service->getLastNumber();
         $oynanilan_renk = $this->service->getPlayedColor();
         $durum = $this->service->getState();
+        $tarih = $this->service->getDate();
 
         return [
+            'tarih' => $tarih,
             'yatirilan_para' => $yatirilan_para ,
             'kar' => $kar ,
             'max_n' => $max_n ,

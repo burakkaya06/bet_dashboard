@@ -63,4 +63,9 @@ class DashboardService
         return 'Kaybetti';
     }
 
+    public function getDate() {
+        $date = DB::select('select created_at from win_simulator  order by  id  desc   limit 1');
+        return $date[0]->created_at;
+    }
+
 }
