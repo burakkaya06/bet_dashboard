@@ -54,12 +54,7 @@
 <body>
 
 <div class="grid-container">
-    <div class="grid-item large {{ $color ? 'green' : 'red' }}">1</div>
-    <div class="grid-item medium {{ $color ? 'green' : 'red' }}">2</div>
-    <div class="grid-item {{ $color ? 'green' : 'red' }}">3</div>
-    <div class="grid-item medium {{ $color ? 'green' : 'red' }}">4</div>
-    <div class="grid-item {{ $color ? 'green' : 'red' }}">5</div>
-    <div class="grid-item {{ $color ? 'green' : 'red' }}">6</div>
+
 </div>
 
 </body>
