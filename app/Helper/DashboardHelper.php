@@ -26,9 +26,11 @@ class DashboardHelper
         $oynanilan_renk = $this->service->getPlayedColor();
         $durum = $this->service->getState();
         $tarih = $this->service->getDate();
+        $diff = $this->service->difdate();
 
         return [
             'tarih' => $tarih,
+            'baslangıc' => $diff,
             'yatirilan_para' => $yatirilan_para ,
             'kar' => $kar ,
             'max_n' => $max_n ,

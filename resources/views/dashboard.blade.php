@@ -37,6 +37,10 @@
             <span class="data-value">{{ $item['tarih'] }}</span>
         </div>
         <div class="data-item">
+            <span class="data-label">Tarih </span>
+            <span class="data-value">{{ $item['baslangıc'] }}</span>
+        </div>
+        <div class="data-item">
             <span class="data-label">Kar:</span>
             <span class="data-value">{{ $item['kar'] }}</span>
         </div>

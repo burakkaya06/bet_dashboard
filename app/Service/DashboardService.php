@@ -68,4 +68,14 @@ class DashboardService
         return $date[0]->created_at;
     }
 
+    public function difdate() {
+        $date = DB::select('
+        SELECT TIMESTAMPDIFF(DAY, (select created_at from win_simulator where id > 1 order by id   asc limit 1), NOW()) AS gun,
+       TIMESTAMPDIFF(MINUTE, (select created_at from win_simulator where id > 1 order by id   asc limit 1), NOW()) % 60 AS saat
+        ');
+        return $date[0]->gun . ' Gün ' . $date[0]->saat . ' Saat';
+    }
+
+
+
 }
