@@ -70,11 +70,22 @@ class DashboardService
 
     public function difdate() {
         $date = DB::select('
-       SELECT
+        SELECT
   TIMESTAMPDIFF(HOUR, (SELECT created_at FROM win_simulator WHERE id > 1 ORDER BY id ASC LIMIT 1), NOW()) DIV 24 AS gun,
-  TIMESTAMPDIFF(HOUR, (SELECT created_at FROM win_simulator WHERE id > 1 ORDER BY id ASC LIMIT 1), NOW()) % 24 AS saat;
+  TIMESTAMPDIFF(HOUR, (SELECT created_at FROM win_simulator WHERE id > 1 ORDER BY id ASC LIMIT 1), NOW()) % 24 AS saat,
+  TIMESTAMPDIFF(MINUTE, (SELECT created_at FROM win_simulator WHERE id > 1 ORDER BY id ASC LIMIT 1), NOW()) % 60 AS dakika;
 ');
-        return $date[0]->gun . ' Gün ' . $date[0]->saat . ' Saat';
+        return $date[0]->gun . ' Gün ' . $date[0]->saat . ' Saat ' . $date[0]->dakika . ' Dakika';
+    }
+
+    public function getStartDate() {
+        $date = DB::select('select created_at from win_simulator  order by  id  asc   limit 1');
+        return $date[0]->created_at;
+    }
+
+    public function getSeri() {
+        $seri = DB::select('select seri from last_seri order by id desc limit 1');
+        return $seri[0]->seri;
     }
 
 

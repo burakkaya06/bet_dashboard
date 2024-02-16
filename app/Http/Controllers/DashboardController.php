@@ -13,11 +13,12 @@ class DashboardController extends Controller
     public function index()
     {
         $helper = new  DashboardHelper();
+        $dd = $helper->getDetail();
         $data = [
-            $helper->getDetail()
+            $dd
         ];
 
-        return view('dashboard', ['data' => $data]);
+        return view('dashboard', ['data' => $data,'numbersFromBackend' => $dd['seri']]);
     }
 
     /**

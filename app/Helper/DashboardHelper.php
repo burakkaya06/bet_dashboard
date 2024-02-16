@@ -27,8 +27,12 @@ class DashboardHelper
         $durum = $this->service->getState();
         $tarih = $this->service->getDate();
         $diff = $this->service->difdate();
+        $start_date = $this->service->getStartDate();
+        $seri = $this->service->getSeri();
 
         return [
+            'seri' => $seri,
+            'start_date' => $start_date,
             'tarih' => $tarih,
             'baslangıc' => $diff,
             'yatirilan_para' => $yatirilan_para ,
